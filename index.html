@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KILLSPREE VR - Immersive Horror Experience</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <style>
+        :root {
+            --primary-color: #ff0000;
+            --secondary-color: #1a1a1a;
+            --text-color: #ffffff;
+            --accent-color: #8b0000;
+            --font-main: 'Arial', sans-serif;
+            --font-title: 'Impact', sans-serif;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: var(--font-main);
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 50px 0;
+            position: relative;
+        }
+
+        h1 {
+            font-family: var(--font-title);
+            font-size: 4em;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            color: var(--primary-color);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        nav {
+            margin-top: 20px;
+        }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.2em;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        .glitch-effect {
+            position: relative;
+        }
+
+        .glitch-effect::before,
+        .glitch-effect::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.8;
+        }
+
+        .glitch-effect::before {
+            left: 2px;
+            text-shadow: -2px 0 var(--accent-color);
+            clip: rect(44px, 450px, 56px, 0);
+            animation: glitch-anim 5s infinite linear alternate-reverse;
+        }
+
+        .glitch-effect::after {
+            left: -2px;
+            text-shadow: -2px 0 var(--primary-color);
+            clip: rect(44px, 450px, 56px, 0);
+            animation: glitch-anim 5s infinite linear alternate-reverse;
+        }
+
+        @keyframes glitch-anim {
+            0% {
+                clip: rect(14px, 9999px, 66px, 0);
+            }
+            20% {
+                clip: rect(85px, 9999px, 51px, 0);
+            }
+            40% {
+                clip: rect(41px, 9999px, 77px, 0);
+            }
+            60% {
+                clip: rect(31px, 9999px, 94px, 0);
+            }
+            80% {
+                clip: rect(96px, 9999px, 35px, 0);
+            }
+            100% {
+                clip: rect(7px, 9999px, 50px, 0);
+            }
+        }
+
+        .content {
+            margin-top: 50px;
+        }
+
+        .section {
+            margin-bottom: 50px;
+        }
+
+        h2 {
+            font-size: 2em;
+            color: var(--accent-color);
+        }
+
+        p {
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 1.2em;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: var(--accent-color);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+        }
+
+        #blood-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        .blood-drop {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="blood-overlay"></div>
+    <header>
+        <h1 class="glitch-effect" data-text="KILLSPREE VR">KILLSPREE VR</h1>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#features">Features</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#buy">Buy Now</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="content">
+            <section id="about" class="section">
+                <h2>Welcome to the Nightmare</h2>
+                <p>KILLSPREE VR is an intense, heart-pounding virtual reality horror experience that will push you to the limits of fear. Immerse yourself in a world of terror, where every corner hides a new threat and your survival instincts are put to the ultimate test.</p>
+            </section>
+
+            <section id="features" class="section">
+                <h2>Game Features</h2>
+                <ul>
+                    <li>Hyper-realistic VR graphics</li>
+                    <li>Adaptive AI that learns from your fears</li>
+                    <li>Multiple terrifying environments</li>
+                    <li>Intense sound design for maximum immersion</li>
+                    <li>Multiplayer survival mode</li>
+                </ul>
+            </section>
+
+            <section id="gallery" class="section">
+                <h2>Gallery</h2>
+                <p>Images would be displayed here. For placeholders, use:</p>
+                <img src="/api/placeholder/400/300" alt="KILLSPREE VR Screenshot 1" />
+                <img src="/api/placeholder/400/300" alt="KILLSPREE VR Screenshot 2" />
+            </section>
+
+            <section id="buy" class="section">
+                <h2>Get Ready for the Slaughter</h2>
+                <p>Are you brave enough to enter the world of KILLSPREE VR? Purchase now and prepare for the most terrifying experience of your life!</p>
+                <a href="#" class="cta-button">Buy Now</a>
+            </section>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 KILLSPREE VR. All rights reserved. Enter at your own risk.</p>
+    </footer>
+
+    <script>
+        // Glitch effect
+        const glitchElement = document.querySelector('.glitch-effect');
+        setInterval(() => {
+            const glitchDuration = Math.random() * 200 + 50;
+            glitchElement.style.animation = `glitch-anim ${glitchDuration}ms infinite`;
+            setTimeout(() => {
+                glitchElement.style.animation = '';
+            }, glitchDuration);
+        }, 3000);
+
+        // Blood drip effect
+        const bloodOverlay = document.getElementById('blood-overlay');
+
+        function createBloodDrop() {
+            const drop = document.createElement('div');
+            drop.classList.add('blood-drop');
+            drop.style.left = `${Math.random() * 100}%`;
+            bloodOverlay.appendChild(drop);
+
+            gsap.to(drop, {
+                y: '100vh',
+                duration: Math.random() * 3 + 2,
+                ease: 'power1.in',
+                opacity: 1,
+                onComplete: () => {
+                    bloodOverlay.removeChild(drop);
+                }
+            });
+        }
+
+        setInterval(createBloodDrop, 500);
+
+        // Scroll reveal animation
+        gsap.registerPlugin(ScrollTrigger);
+
+        gsap.utils.toArray('.section').forEach(section => {
+            gsap.from(section, {
+                opacity: 0,
+                y: 50,
+                duration: 1,
+                scrollTrigger: {
+                    trigger: section,
+                    start: 'top 80%',
+                    end: 'bottom 20%',
+                    toggleActions: 'play none none reverse'
+                }
+            });
+        });
+    </script>
+</body>
+</html>
